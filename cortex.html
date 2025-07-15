@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cortex - Análisis Automatizado | AlphaTechAdviser</title>
+    <meta name="description" content="Cortex: Motor de análisis automático de amenazas y malware con integración de múltiples fuentes de inteligencia. Implementación profesional por AlphaTechAdviser.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --success-color: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+        
+        .tech-specs {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#herramientas">Herramientas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#precios">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-5 pt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="index.html#herramientas">Herramientas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Cortex</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-brain me-3"></i>Cortex
+                    </h1>
+                    <h2 class="h3 mb-4">Motor de Análisis y Respuesta Automatizada</h2>
+                    <p class="lead mb-4">
+                        Cortex es un motor de análisis de seguridad que automatiza el análisis de observables 
+                        (IPs, URLs, hashes, etc.) utilizando múltiples servicios de inteligencia de amenazas. 
+                        Se integra perfectamente con TheHive para proporcionar análisis automatizado en tiempo real.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#servicios" class="btn btn-primary btn-lg">
+                            <i class="fas fa-cogs me-2"></i>Nuestros Servicios
+                        </a>
+                        <a href="index.html#contacto" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone me-2"></i>Consultar
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" alt="Cortex Platform" class="img-fluid" style="max-width: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">¿Qué es Cortex?</h2>
+                    <p class="lead text-muted mb-5">
+                        Cortex es el cerebro de su operación de seguridad, proporcionando análisis 
+                        automatizado e inteligente de amenazas para acelerar la respuesta a incidentes.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4 class="card-title">Análisis Automatizado</h4>
+                            <p class="card-text">
+                                Cortex ejecuta análisis automáticos de observables utilizando más de 100 
+                                servicios de inteligencia de amenazas diferentes. Cada observable se analiza 
+                                contra múltiples fuentes para proporcionar una evaluación comprehensiva 
+                                del riesgo y la reputación.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <h4 class="card-title">Integración Perfecta</h4>
+                            <p class="card-text">
+                                Se integra nativamente con TheHive para proporcionar análisis automático 
+                                de observables durante la gestión de incidentes. Los resultados se 
+                                incorporan automáticamente a los casos, enriqueciendo la información 
+                                disponible para los analistas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Capacidades Principales</h2>
+                    <p class="lead text-muted">
+                        Cortex ofrece un conjunto completo de capacidades de análisis para 
+                        la detección y respuesta a amenazas.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-virus text-primary me-2"></i>Análisis de Malware
+                            </h5>
+                            <p class="card-text">
+                                Análisis detallado de archivos sospechosos utilizando sandboxes, 
+                                análisis estático y dinámico, y detección de patrones maliciosos. 
+                                Soporte para múltiples formatos de archivo y análisis de comportamiento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-search text-primary me-2"></i>Enriquecimiento de Datos
+                            </h5>
+                            <p class="card-text">
+                                Enriquecimiento automático de observables con información de reputación, 
+                                geolocalización, información de registro WHOIS, y datos de amenazas 
+                                de múltiples fuentes de inteligencia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-code text-primary me-2"></i>Analizadores Personalizados
+                            </h5>
+                            <p class="card-text">
+                                Desarrollo de analizadores personalizados para amenazas específicas 
+                                de su entorno. API flexible que permite la integración con servicios 
+                                internos y fuentes de datos propietarias.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-chart-line text-primary me-2"></i>Análisis de Tendencias
+                            </h5>
+                            <p class="card-text">
+                                Análisis de patrones y tendencias en observables a lo largo del tiempo. 
+                                Identificación de campañas de amenazas y correlación de eventos 
+                                relacionados para una visión más amplia de las amenazas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-bolt text-primary me-2"></i>Respuesta Automática
+                            </h5>
+                            <p class="card-text">
+                                Configuración de respuestas automáticas basadas en resultados de análisis. 
+                                Integración con sistemas de bloqueo, notificaciones automáticas y 
+                                ejecución de playbooks de respuesta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-expand-arrows-alt text-primary me-2"></i>Escalabilidad
+                            </h5>
+                            <p class="card-text">
+                                Arquitectura distribuida que permite el escalado horizontal para 
+                                manejar grandes volúmenes de análisis. Balanceo de carga automático 
+                                y alta disponibilidad para entornos de producción.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Observables -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Tipos de Observables Soportados</h2>
+                    <p class="lead text-muted">
+                        Cortex puede analizar una amplia variedad de observables de seguridad 
+                        para proporcionar inteligencia de amenazas comprehensiva.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h5>IPs y Dominios</h5>
+                        <p class="text-muted">Análisis de reputación, geolocalización, información de registro</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h5>URLs</h5>
+                        <p class="text-muted">Detección de phishing, análisis de contenido malicioso</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-file"></i>
+                        </div>
+                        <h5>Hashes de Archivos</h5>
+                        <p class="text-muted">Análisis de malware, reputación en bases de datos</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h5>Emails</h5>
+                        <p class="text-muted">Análisis de spam, phishing, reputación del remitente</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AlphaTechAdviser Services -->
+    <section id="servicios" class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Servicios de AlphaTechAdviser</h2>
+                    <p class="lead text-muted">
+                        Nuestros expertos en análisis de amenazas configuran Cortex para maximizar 
+                        su efectividad en la detección y respuesta a amenazas.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">
+                                <i class="fas fa-cogs text-primary me-2"></i>Configuración Avanzada
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de analizadores según sus necesidades específicas</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Integración con servicios de inteligencia de amenazas premium</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Desarrollo de analizadores personalizados para amenazas específicas</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Optimización de la velocidad y precisión del análisis</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de alertas automáticas basadas en resultados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">
+                                <i class="fas fa-graduation-cap text-primary me-2"></i>Entrenamiento Especializado
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Entrenamiento del equipo en interpretación de resultados</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Desarrollo de playbooks de respuesta automatizada</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de integraciones con TheHive</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mantenimiento y actualización de analizadores</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte técnico especializado 24/7</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="tech-specs">
+                        <h2 class="text-center mb-4">Especificaciones Técnicas</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-server text-primary me-2"></i>Requisitos del Sistema</h5>
+                                <ul class="list-unstyled">
+                                    <li><strong>CPU:</strong> 8 cores mínimo, 16 cores recomendado</li>
+                                    <li><strong>RAM:</strong> 16GB mínimo, 32GB recomendado</li>
+                                    <li><strong>Almacenamiento:</strong> 500GB SSD mínimo</li>
+                                    <li><strong>Sistema Operativo:</strong> Linux (Ubuntu/CentOS)</li>
+                                    <li><strong>Base de Datos:</strong> PostgreSQL 12+</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-network-wired text-primary me-2"></i>Integraciones</h5>
+                                <ul class="list-unstyled">
+                                    <li><strong>TheHive:</strong> Integración nativa para análisis automático</li>
+                                    <li><strong>APIs:</strong> RESTful para integraciones personalizadas</li>
+                                    <li><strong>Sandboxes:</strong> Cuckoo, Joe Sandbox, Hybrid Analysis</li>
+                                    <li><strong>Threat Intel:</strong> VirusTotal, AlienVault OTX, MISP</li>
+                                    <li><strong>SIEMs:</strong> Integración con sistemas de gestión de eventos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Beneficios para su Organización</h2>
+                    <p class="lead text-muted">
+                        Cortex transforma la forma en que su equipo analiza y responde a amenazas, 
+                        proporcionando capacidades de análisis automatizado de clase empresarial.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h5>Análisis 10x Más Rápido</h5>
+                        <p class="text-muted">que métodos manuales tradicionales</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h5>100+ Fuentes de Inteligencia</h5>
+                        <p class="text-muted">para análisis comprehensivo</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-shield-check"></i>
+                        </div>
+                        <h5>Detección Temprana</h5>
+                        <p class="text-muted">de amenazas emergentes</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5>ROI Demostrable</h5>
+                        <p class="text-muted">en tiempo y recursos ahorrados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">¿Listo para implementar Cortex?</h2>
+            <p class="lead mb-4">
+                Nuestro equipo de expertos en análisis de amenazas está listo para configurar 
+                Cortex para su organización.
+            </p>
+            <a href="index.html#contacto" class="btn btn-light btn-lg">
+                <i class="fas fa-rocket me-2"></i>Comenzar Implementación
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser</h5>
+                    <p class="text-muted">Su socio en ciberseguridad en Panamá</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="index.html" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-home me-1"></i>Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

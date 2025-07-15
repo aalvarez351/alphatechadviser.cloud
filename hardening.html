@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardening de Servidores | AlphaTechAdviser</title>
+    <meta name="description" content="Hardening de servidores: Fortalecimiento de la configuración y seguridad de servidores para minimizar riesgos y cumplir con normativas. Servicio profesional AlphaTechAdviser.">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #1e3a8a; --secondary-color: #3b82f6; --accent-color: #ef4444; --dark-color: #1f2937; --light-color: #f8fafc; --success-color: #10b981; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; }
+        .navbar-brand { font-weight: 700; font-size: 1.5rem; }
+        .hero-section { background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding: 120px 0 80px; position: relative; }
+        .feature-card { border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease; height: 100%; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-bottom: 1rem; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border: none; border-radius: 10px; padding: 12px 30px; font-weight: 600; }
+        .tech-specs { background: var(--light-color); border-radius: 15px; padding: 2rem; }
+        .breadcrumb-item a { color: var(--primary-color); text-decoration: none; }
+        .cta-section { background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%); color: white; padding: 80px 0; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#herramientas">Herramientas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="precios.html">Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Breadcrumb -->
+    <div class="container mt-5 pt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="index.html#herramientas">Herramientas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Hardening de Servidores</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4"><i class="fas fa-lock me-3"></i>Hardening de Servidores</h1>
+                    <h2 class="h3 mb-4">Fortalecimiento y Seguridad de Infraestructura</h2>
+                    <p class="lead mb-4">El hardening de servidores es el proceso de asegurar y reforzar la configuración de sistemas para minimizar vulnerabilidades y cumplir con normativas internacionales.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#servicios" class="btn btn-primary btn-lg"><i class="fas fa-cogs me-2"></i>Nuestros Servicios</a>
+                        <a href="index.html#contacto" class="btn btn-outline-light btn-lg"><i class="fas fa-phone me-2"></i>Consultar</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Hardening Servidores" class="img-fluid" style="max-width: 350px;">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ¿Qué es Hardening? -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">¿Qué es el Hardening de Servidores?</h2>
+                    <p class="lead text-muted mb-5">Consiste en aplicar configuraciones seguras, eliminar servicios innecesarios, restringir accesos y aplicar controles de seguridad para reducir la superficie de ataque de los servidores.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100"><div class="card-body p-4"><div class="feature-icon"><i class="fas fa-user-shield"></i></div><h4 class="card-title">Cumplimiento Normativo</h4><p class="card-text">Alineación con estándares internacionales como ISO 27001, PCI DSS, HIPAA y CIS Benchmarks.</p></div></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100"><div class="card-body p-4"><div class="feature-icon"><i class="fas fa-tools"></i></div><h4 class="card-title">Metodología Estandarizada</h4><p class="card-text">Aplicación de guías y checklists reconocidos para asegurar la robustez de la configuración.</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Servicios -->
+    <section id="servicios" class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5"><div class="col-lg-8 mx-auto"><h2 class="display-5 fw-bold mb-3">Servicios de Hardening</h2><p class="lead text-muted">AlphaTechAdviser ofrece servicios de hardening para servidores Linux, Windows y aplicaciones críticas.</p></div></div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6"><div class="card feature-card h-100"><div class="card-body p-4"><h5 class="card-title"><i class="fas fa-server text-primary me-2"></i>Hardening de SO</h5><p class="card-text">Configuración segura de sistemas operativos, eliminación de servicios innecesarios, refuerzo de contraseñas y políticas de acceso.</p></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="card feature-card h-100"><div class="card-body p-4"><h5 class="card-title"><i class="fas fa-network-wired text-primary me-2"></i>Hardening de Red</h5><p class="card-text">Configuración de firewalls, segmentación de red, control de puertos y protocolos, y monitoreo de tráfico.</p></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="card feature-card h-100"><div class="card-body p-4"><h5 class="card-title"><i class="fas fa-database text-primary me-2"></i>Hardening de Aplicaciones</h5><p class="card-text">Refuerzo de configuraciones de bases de datos, servidores web y aplicaciones empresariales.</p></div></div></div>
+            </div>
+        </div>
+    </section>
+    <!-- Beneficios -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5"><div class="col-lg-8 mx-auto"><h2 class="display-5 fw-bold mb-3">Beneficios para su Organización</h2><p class="lead text-muted">El hardening reduce drásticamente el riesgo de ataques y mejora la postura de seguridad de su empresa.</p></div></div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6"><div class="text-center"><div class="feature-icon mx-auto mb-3"><i class="fas fa-shield-check"></i></div><h5>Reducción de Riesgos</h5><p class="text-muted">Menos vulnerabilidades explotables</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="text-center"><div class="feature-icon mx-auto mb-3"><i class="fas fa-certificate"></i></div><h5>Cumplimiento</h5><p class="text-muted">Con normativas y auditorías</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="text-center"><div class="feature-icon mx-auto mb-3"><i class="fas fa-lock"></i></div><h5>Confidencialidad</h5><p class="text-muted">Protección de datos críticos</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="text-center"><div class="feature-icon mx-auto mb-3"><i class="fas fa-chart-line"></i></div><h5>Mejora Continua</h5><p class="text-muted">Revisión y refuerzo periódico</p></div></div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">¿Listo para fortalecer sus servidores?</h2>
+            <p class="lead mb-4">Solicite una consultoría de hardening y mejore la seguridad de su infraestructura.</p>
+            <a href="index.html#contacto" class="btn btn-light btn-lg"><i class="fas fa-rocket me-2"></i>Solicitar Servicio</a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"><h5><i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser</h5><p class="text-muted">Su socio en ciberseguridad en Panamá</p></div>
+                <div class="col-md-6 text-end"><a href="index.html" class="btn btn-outline-light btn-sm"><i class="fas fa-home me-1"></i>Volver al Inicio</a></div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafana - Monitoreo en Tiempo Real | AlphaTechAdviser</title>
+    <meta name="description" content="Grafana: Plataforma de monitoreo y visualización de métricas con dashboards en tiempo real y alertas inteligentes. Implementación profesional por AlphaTechAdviser.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --success-color: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+        
+        .tech-specs {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#herramientas">Herramientas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#precios">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-5 pt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="index.html#herramientas">Herramientas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Grafana</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-tachometer-alt me-3"></i>Grafana
+                    </h1>
+                    <h2 class="h3 mb-4">Plataforma de Monitoreo y Visualización de Métricas</h2>
+                    <p class="lead mb-4">
+                        Grafana es una plataforma de monitoreo y visualización de métricas que permite 
+                        crear dashboards en tiempo real para monitorear sistemas, aplicaciones y 
+                        infraestructura. En el contexto de seguridad, es ideal para monitorear 
+                        el rendimiento de herramientas de seguridad y detectar anomalías.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#servicios" class="btn btn-primary btn-lg">
+                            <i class="fas fa-cogs me-2"></i>Nuestros Servicios
+                        </a>
+                        <a href="index.html#contacto" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone me-2"></i>Consultar
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" alt="Grafana Platform" class="img-fluid" style="max-width: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">¿Qué es Grafana?</h2>
+                    <p class="lead text-muted mb-5">
+                        Grafana es la plataforma líder en visualización de métricas y monitoreo, 
+                        proporcionando capacidades avanzadas para el análisis de datos en tiempo real.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4 class="card-title">Dashboards en Tiempo Real</h4>
+                            <p class="card-text">
+                                Creación de dashboards interactivos que muestran métricas en tiempo real 
+                                de sistemas de seguridad, aplicaciones e infraestructura. Visualizaciones 
+                                personalizables que permiten identificar patrones y anomalías rápidamente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <h4 class="card-title">Alertas Inteligentes</h4>
+                            <p class="card-text">
+                                Sistema de alertas basado en umbrales, patrones y condiciones personalizadas. 
+                                Notificaciones automáticas por email, Slack, Teams o webhooks cuando se 
+                                detectan anomalías o problemas de rendimiento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Capacidades Principales</h2>
+                    <p class="lead text-muted">
+                        Grafana ofrece un conjunto completo de herramientas para el monitoreo 
+                        y visualización de métricas de seguridad.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-chart-bar text-primary me-2"></i>Visualizaciones Avanzadas
+                            </h5>
+                            <p class="card-text">
+                                Múltiples tipos de gráficos: líneas, barras, heatmaps, gauges, 
+                                tablas y visualizaciones personalizadas. Soporte para anotaciones 
+                                y drill-down para análisis detallado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-database text-primary me-2"></i>Múltiples Fuentes de Datos
+                            </h5>
+                            <p class="card-text">
+                                Integración con más de 50 fuentes de datos incluyendo Prometheus, 
+                                InfluxDB, Elasticsearch, MySQL, PostgreSQL y APIs personalizadas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-users text-primary me-2"></i>Colaboración en Equipo
+                            </h5>
+                            <p class="card-text">
+                                Dashboards compartidos, comentarios, anotaciones y control de acceso 
+                                basado en roles. Soporte para múltiples usuarios y equipos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-mobile-alt text-primary me-2"></i>Acceso Móvil
+                            </h5>
+                            <p class="card-text">
+                                Interfaz responsive que funciona perfectamente en dispositivos móviles. 
+                                Aplicación móvil oficial para monitoreo remoto y alertas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-code text-primary me-2"></i>APIs y Automatización
+                            </h5>
+                            <p class="card-text">
+                                APIs RESTful completas para automatización, integración con sistemas 
+                                externos y creación programática de dashboards y alertas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-shield-alt text-primary me-2"></i>Seguridad Empresarial
+                            </h5>
+                            <p class="card-text">
+                                Autenticación LDAP/Active Directory, autorización basada en roles, 
+                                auditoría completa y soporte para SSO empresarial.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AlphaTechAdviser Services -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Servicios de AlphaTechAdviser</h2>
+                    <p class="lead text-muted">
+                        Nuestros expertos en monitoreo configuran Grafana para maximizar 
+                        su efectividad en el monitoreo de seguridad.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">
+                                <i class="fas fa-palette text-primary me-2"></i>Diseño de Dashboards
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Diseño de dashboards específicos para herramientas de seguridad</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de métricas de rendimiento de sistemas SOC</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Desarrollo de alertas personalizadas para amenazas específicas</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Integración con múltiples fuentes de datos de seguridad</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Optimización de consultas para rendimiento óptimo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">
+                                <i class="fas fa-cogs text-primary me-2"></i>Configuración Avanzada
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de roles y permisos de usuario</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Integración con sistemas de autenticación empresarial</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de backup y alta disponibilidad</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Entrenamiento del equipo en uso de Grafana</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte técnico especializado 24/7</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="tech-specs">
+                        <h2 class="text-center mb-4">Especificaciones Técnicas</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-server text-primary me-2"></i>Requisitos del Sistema</h5>
+                                <ul class="list-unstyled">
+                                    <li><strong>CPU:</strong> 2 cores mínimo, 4 cores recomendado</li>
+                                    <li><strong>RAM:</strong> 4GB mínimo, 8GB recomendado</li>
+                                    <li><strong>Almacenamiento:</strong> 50GB SSD mínimo</li>
+                                    <li><strong>Sistema Operativo:</strong> Linux, Windows, macOS</li>
+                                    <li><strong>Navegador:</strong> Chrome, Firefox, Safari, Edge</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-network-wired text-primary me-2"></i>Integraciones</h5>
+                                <ul class="list-unstyled">
+                                    <li><strong>Prometheus:</strong> Métricas y monitoreo</li>
+                                    <li><strong>InfluxDB:</strong> Series temporales</li>
+                                    <li><strong>Elasticsearch:</strong> Logs y búsqueda</li>
+                                    <li><strong>MySQL/PostgreSQL:</strong> Bases de datos</li>
+                                    <li><strong>APIs:</strong> RESTful para integraciones</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Beneficios para su Organización</h2>
+                    <p class="lead text-muted">
+                        Grafana transforma la forma en que su equipo monitorea y visualiza 
+                        métricas de seguridad, proporcionando insights valiosos.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h5>Visibilidad Total</h5>
+                        <p class="text-muted">de métricas de seguridad</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h5>Alertas Inteligentes</h5>
+                        <p class="text-muted">basadas en patrones</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5>Análisis de Tendencias</h5>
+                        <p class="text-muted">y predicciones</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5>Colaboración Mejorada</h5>
+                        <p class="text-muted">entre equipos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">¿Listo para implementar Grafana?</h2>
+            <p class="lead mb-4">
+                Nuestro equipo de expertos en monitoreo está listo para configurar 
+                Grafana para su organización.
+            </p>
+            <a href="index.html#contacto" class="btn btn-light btn-lg">
+                <i class="fas fa-rocket me-2"></i>Comenzar Implementación
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser</h5>
+                    <p class="text-muted">Su socio en ciberseguridad en Panamá</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="index.html" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-home me-1"></i>Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

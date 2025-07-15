@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeek - Análisis Forense y Detección de Anomalías | AlphaTechAdviser</title>
+    <meta name="description" content="Zeek: Analizador avanzado de tráfico de red para detección de anomalías, análisis forense y visibilidad profunda de protocolos. Implementación profesional por AlphaTechAdviser.">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #1e3a8a; --secondary-color: #3b82f6; --accent-color: #ef4444; --dark-color: #1f2937; --light-color: #f8fafc; --success-color: #10b981; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; }
+        .navbar-brand { font-weight: 700; font-size: 1.5rem; }
+        .hero-section { background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding: 120px 0 80px; position: relative; }
+        .feature-card { border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease; height: 100%; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-bottom: 1rem; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border: none; border-radius: 10px; padding: 12px 30px; font-weight: 600; }
+        .breadcrumb-item a { color: var(--primary-color); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#herramientas">Herramientas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#precios">Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Breadcrumb -->
+    <div class="container mt-5 pt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="index.html#herramientas">Herramientas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Zeek</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4"><i class="fas fa-network-wired me-3"></i>Zeek</h1>
+                    <h2 class="h3 mb-4">Análisis Forense y Detección de Anomalías en Red</h2>
+                    <p class="lead mb-4">Zeek es un potente analizador de tráfico de red que proporciona visibilidad profunda, detección de amenazas avanzadas y análisis forense de protocolos. Ideal para SOCs, equipos de respuesta a incidentes y monitoreo de seguridad.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#servicios" class="btn btn-primary btn-lg"><i class="fas fa-cogs me-2"></i>Nuestros Servicios</a>
+                        <a href="index.html#contacto" class="btn btn-outline-light btn-lg"><i class="fas fa-phone me-2"></i>Consultar</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135771.png" alt="Zeek Network Analysis" class="img-fluid" style="max-width: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Overview Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">¿Qué es Zeek?</h2>
+                    <p class="lead text-muted mb-5">Zeek (antes Bro) es una plataforma líder para el análisis de tráfico de red, permitiendo la detección de amenazas, anomalías y la generación de registros detallados para análisis forense y cumplimiento.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100"><div class="card-body p-4"><div class="feature-icon"><i class="fas fa-search"></i></div><h4 class="card-title">Visibilidad Profunda</h4><p class="card-text">Análisis detallado de protocolos, sesiones y actividades en la red para identificar comportamientos sospechosos.</p></div></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100"><div class="card-body p-4"><div class="feature-icon"><i class="fas fa-bug"></i></div><h4 class="card-title">Detección de Amenazas</h4><p class="card-text">Identificación de ataques, malware, exfiltración de datos y actividades anómalas en tiempo real.</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Capabilities Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Capacidades Principales</h2>
+                    <p class="lead text-muted">Zeek ofrece un conjunto avanzado de capacidades para el monitoreo, análisis y respuesta ante incidentes de red.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6"><div class="card feature-card h-100"><div class="card-body p-4"><h5 class="card-title"><i class="fas fa-file-alt text-primary me-2"></i>Registros Forenses Detallados</h5><p class="card-text">Generación de logs exhaustivos de conexiones, DNS, HTTP, SSL, archivos y más para análisis posterior y cumplimiento.</p></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="card feature-card h-100"><div class="card-body p-4"><h5 class="card-title"><i class="fas fa-brain text-primary me-2"></i>Detección de Anomalías</h5><p class="card-text">Identificación de patrones inusuales, tráfico sospechoso y comportamientos anómalos mediante scripts personalizables.</p></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="card feature-card h-100"><div class="card-body p-4"><h5 class="card-title"><i class="fas fa-code-branch text-primary me-2"></i>Integración y Automatización</h5><p class="card-text">Integración con SIEM, sistemas de alerta y automatización de respuestas ante incidentes.</p></div></div></div>
+            </div>
+        </div>
+    </section>
+    <!-- Beneficios Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Beneficios para su Organización</h2>
+                    <p class="lead text-muted">El uso de Zeek proporciona visibilidad, control y capacidad de respuesta avanzada ante incidentes de seguridad en la red.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6"><div class="text-center"><div class="feature-icon mx-auto mb-3"><i class="fas fa-eye"></i></div><h5>Visibilidad Total</h5><p class="text-muted">Monitoreo profundo de todo el tráfico de red</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="text-center"><div class="feature-icon mx-auto mb-3"><i class="fas fa-bolt"></i></div><h5>Respuesta Rápida</h5><p class="text-muted">Detección y reacción ante incidentes en tiempo real</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="text-center"><div class="feature-icon mx-auto mb-3"><i class="fas fa-database"></i></div><h5>Análisis Forense</h5><p class="text-muted">Registros detallados para investigación y cumplimiento</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="text-center"><div class="feature-icon mx-auto mb-3"><i class="fas fa-shield-alt"></i></div><h5>Seguridad Proactiva</h5><p class="text-muted">Prevención de amenazas y reducción de riesgos</p></div></div>
+            </div>
+        </div>
+    </section>
+    <!-- Casos de Uso y Metodología -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-3"><i class="fas fa-briefcase me-2"></i>Casos de Uso</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Monitoreo de tráfico en SOCs y NOCs</li>
+                        <li class="list-group-item">Investigación forense de incidentes de seguridad</li>
+                        <li class="list-group-item">Cumplimiento de normativas y auditorías</li>
+                        <li class="list-group-item">Detección de exfiltración de datos y amenazas avanzadas</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-3"><i class="fas fa-route me-2"></i>¿Cómo trabajamos?</h3>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Diagnóstico y levantamiento de requerimientos</li>
+                        <li class="list-group-item">Implementación y configuración de Zeek</li>
+                        <li class="list-group-item">Integración con SIEM y sistemas de alerta</li>
+                        <li class="list-group-item">Capacitación y soporte continuo</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="index.html#contacto" class="btn btn-primary btn-lg"><i class="fas fa-envelope me-2"></i>Solicitar Implementación</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">¿Listo para potenciar la visibilidad de su red?</h2>
+            <p class="lead mb-4">Solicite la implementación de Zeek y obtenga control total sobre la seguridad y el análisis forense de su infraestructura.</p>
+            <a href="index.html#contacto" class="btn btn-light btn-lg"><i class="fas fa-rocket me-2"></i>Solicitar Zeek</a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"><h5><i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser</h5><p class="text-muted">Su socio en ciberseguridad en Panamá</p></div>
+                <div class="col-md-6 text-end"><a href="index.html" class="btn btn-outline-light btn-sm"><i class="fas fa-home me-1"></i>Volver al Inicio</a></div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

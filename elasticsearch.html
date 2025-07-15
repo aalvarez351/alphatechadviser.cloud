@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor de Búsqueda y Análisis Distribuido | AlphaTechAdviser</title>
+    <meta name="description" content="Elasticsearch es un motor de búsqueda distribuido que proporciona capacidades de búsqueda en tiempo real y análisis de datos masivos. En el contexto de seguridad, es fundamental para el almacenamiento, indexación y búsqueda de logs de seguridad y eventos.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --success-color: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+        
+        .tech-specs {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#herramientas">Herramientas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#precios">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-5 pt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="index.html#herramientas">Herramientas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Elasticsearch</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-search me-3"></i>Elasticsearch
+                    </h1>
+                    <h2 class="h3 mb-4">Motor de Búsqueda y Análisis Distribuido</h2>
+                    <p class="lead mb-4">
+                        Elasticsearch es un motor de búsqueda distribuido que proporciona capacidades de búsqueda en tiempo real y análisis de datos masivos. En el contexto de seguridad, es fundamental para el almacenamiento, indexación y búsqueda de logs de seguridad y eventos.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#servicios" class="btn btn-primary btn-lg">
+                            <i class="fas fa-cogs me-2"></i>Nuestros Servicios
+                        </a>
+                        <a href="index.html#contacto" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone me-2"></i>Consultar
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" alt="Elasticsearch Platform" class="img-fluid" style="max-width: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">¿Qué es Elasticsearch?</h2>
+                    <p class="lead text-muted mb-5">
+                        Elasticsearch es un motor de búsqueda distribuido que proporciona capacidades de búsqueda en tiempo real y análisis de datos masivos. En el contexto de seguridad, es fundamental para el almacenamiento, indexación y búsqueda de logs de seguridad y eventos.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h4 class="card-title">Funcionalidades Principales</h4>
+                            <p class="card-text">
+                                Elasticsearch proporciona capacidades avanzadas para la seguridad informática, 
+                                incluyendo análisis en tiempo real, detección de amenazas y respuesta automática 
+                                a incidentes de seguridad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="card-title">Protección Integral</h4>
+                            <p class="card-text">
+                                Integración perfecta con otras herramientas de seguridad para proporcionar 
+                                una defensa completa contra amenazas cibernéticas, con monitoreo continuo 
+                                y alertas inteligentes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Capacidades Principales</h2>
+                    <p class="lead text-muted">
+                        Elasticsearch ofrece un conjunto completo de herramientas para la seguridad 
+                        y protección de su infraestructura digital.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-search text-primary me-2"></i>Búsqueda en Tiempo Real
+                            </h5>
+                            <p class="card-text">
+                                Búsqueda instantánea en petabytes de datos de seguridad con capacidades 
+                                de búsqueda de texto completo, filtros avanzados y agregaciones complejas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-chart-bar text-primary me-2"></i>Análisis de Datos
+                            </h5>
+                            <p class="card-text">
+                                Análisis de datos masivos con capacidades de agregación, visualización 
+                                de tendencias y detección de patrones en logs de seguridad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-expand-arrows-alt text-primary me-2"></i>Escalabilidad
+                            </h5>
+                            <p class="card-text">
+                                Arquitectura distribuida que permite el escalado horizontal para manejar 
+                                grandes volúmenes de datos y consultas complejas simultáneas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- AlphaTechAdviser Services -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Servicios de AlphaTechAdviser</h2>
+                    <p class="lead text-muted">
+                        Nuestro equipo de expertos configura Elasticsearch para maximizar 
+                        su efectividad en la protección de su organización.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">
+                                <i class="fas fa-cogs text-primary me-2"></i>Implementación Profesional
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Arquitectura distribuida optimizada para su infraestructura</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de índices para retención y rendimiento</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Optimización de consultas para análisis de seguridad</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de backup y recuperación de datos</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Monitoreo de rendimiento y capacidad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">
+                                <i class="fas fa-shield-alt text-primary me-2"></i>Seguridad y Optimización
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de seguridad y autenticación</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Integración con sus fuentes de datos existentes</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Optimización de rendimiento para consultas complejas</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de alta disponibilidad</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte técnico especializado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="tech-specs">
+                        <h2 class="text-center mb-4">Especificaciones Técnicas</h2>
+                        <div class="row g-4">
+                            
+                <div class="col-md-6">
+                    <h5><i class="fas fa-server text-primary me-2"></i>Requisitos del Sistema</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>CPU:</strong> 8 cores mínimo, 16 cores recomendado</li>
+                        <li><strong>RAM:</strong> 16GB mínimo, 32GB recomendado</li>
+                        <li><strong>Almacenamiento:</strong> 1TB SSD mínimo</li>
+                        <li><strong>Sistema Operativo:</strong> Linux (Ubuntu/CentOS)</li>
+                        <li><strong>Java:</strong> OpenJDK 11+</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5><i class="fas fa-network-wired text-primary me-2"></i>Integraciones</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Kibana:</strong> Visualización y análisis de datos</li>
+                        <li><strong>Logstash:</strong> Ingesta y procesamiento de logs</li>
+                        <li><strong>Beats:</strong> Agentes de recolección de datos</li>
+                        <li><strong>APIs:</strong> RESTful para integraciones personalizadas</li>
+                        <li><strong>SIEMs:</strong> Integración con sistemas de seguridad</li>
+                    </ul>
+                </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Beneficios para su Organización</h2>
+                    <p class="lead text-muted">
+                        Elasticsearch transforma la forma en que su organización maneja la seguridad, 
+                        proporcionando beneficios tangibles y medibles.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-shield-check"></i>
+                        </div>
+                        <h5>Protección Avanzada</h5>
+                        <p class="text-muted">contra amenazas cibernéticas</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5>Respuesta Rápida</h5>
+                        <p class="text-muted">a incidentes de seguridad</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5>ROI Demostrable</h5>
+                        <p class="text-muted">en inversiones de seguridad</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h5>Cumplimiento Normativo</h5>
+                        <p class="text-muted">ISO 27001, NIST, PCI DSS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">¿Listo para implementar Elasticsearch?</h2>
+            <p class="lead mb-4">
+                Nuestro equipo de expertos está listo para configurar y optimizar 
+                Elasticsearch para su organización.
+            </p>
+            <a href="index.html#contacto" class="btn btn-light btn-lg">
+                <i class="fas fa-rocket me-2"></i>Comenzar Implementación
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser</h5>
+                    <p class="text-muted">Su socio en ciberseguridad en Panamá</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="index.html" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-home me-1"></i>Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

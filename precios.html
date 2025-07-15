@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios y Planes - AlphaTechAdviser</title>
+    <meta name="description" content="Planes y precios competitivos para servicios de SOC en Panamá. Implementación completa, monitoreo 24/7 y soporte técnico especializado.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --info-color: #06b6d4;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+        
+        .pricing-card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'MÁS POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 40px;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+        
+        .pricing-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .pricing-body {
+            padding: 2rem;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .price-period {
+            font-size: 1rem;
+            color: #6b7280;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list i {
+            color: var(--success-color);
+            margin-right: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .comparison-table .feature-name {
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .savings-badge {
+            background: var(--success-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .implementation-card {
+            background: linear-gradient(135deg, var(--light-color), #e5e7eb);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .roi-section {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 3rem;
+        }
+        .cta-section { background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%); color: white; padding: 80px 0; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#herramientas">Herramientas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="precios.html">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-5 pt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Precios y Planes</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-dollar-sign me-3"></i>Planes y Precios
+                    </h1>
+                    <h2 class="h3 mb-4">Soluciones de SOC Adaptadas a su Presupuesto</h2>
+                    <p class="lead mb-4">
+                        Ofrecemos planes flexibles y precios competitivos para implementar 
+                        un Centro de Operaciones de Seguridad completo en su organización.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="#planes" class="btn btn-primary btn-lg">
+                            <i class="fas fa-eye me-2"></i>Ver Planes
+                        </a>
+                        <a href="index.html#contacto" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone me-2"></i>Consultar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section id="planes" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Planes de Servicio SOC</h2>
+                    <p class="lead text-muted">
+                        Elija el plan que mejor se adapte a las necesidades de su organización
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Plan Básico -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="pricing-header">
+                            <h3 class="h4 mb-3">
+                                <i class="fas fa-shield-alt me-2"></i>SOC Básico
+                            </h3>
+                            <p class="mb-0">Ideal para empresas pequeñas</p>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="text-center mb-4">
+                                <span class="price">$2,500</span>
+                                <span class="price-period">/mes</span>
+                                <div class="savings-badge">Ahorre 10% anual</div>
+                            </div>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i>Monitoreo 8x5 (Lunes a Viernes)</li>
+                                <li><i class="fas fa-check"></i>Implementación de herramientas básicas</li>
+                                <li><i class="fas fa-check"></i>TheHive + Cortex</li>
+                                <li><i class="fas fa-check"></i>Configuración de alertas básicas</li>
+                                <li><i class="fas fa-check"></i>Soporte técnico por email y teléfono</li>
+                                <li><i class="fas fa-check"></i>Reportes mensuales</li>
+                                <li><i class="fas fa-check"></i>1 analista dedicado</li>
+                                <li><i class="fas fa-check"></i>Actualizaciones de seguridad</li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="index.html#contacto" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-rocket me-2"></i>Comenzar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Estándar -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card pricing-card featured h-100">
+                        <div class="pricing-header">
+                            <h3 class="h4 mb-3">
+                                <i class="fas fa-star me-2"></i>SOC Estándar
+                            </h3>
+                            <p class="mb-0">Para empresas medianas</p>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="text-center mb-4">
+                                <span class="price">$5,000</span>
+                                <span class="price-period">/mes</span>
+                                <div class="savings-badge">Ahorre 15% anual</div>
+                            </div>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i>Monitoreo 12x7 (12 horas al día)</li>
+                                <li><i class="fas fa-check"></i>Implementación completa de herramientas</li>
+                                <li><i class="fas fa-check"></i>Elasticsearch + Kibana + Grafana</li>
+                                <li><i class="fas fa-check"></i>Gestión de incidentes de seguridad</li>
+                                <li><i class="fas fa-check"></i>Análisis de amenazas y vulnerabilidades</li>
+                                <li><i class="fas fa-check"></i>Soporte técnico prioritario</li>
+                                <li><i class="fas fa-check"></i>Reportes semanales y mensuales</li>
+                                <li><i class="fas fa-check"></i>Dashboard personalizado</li>
+                                <li><i class="fas fa-check"></i>2-3 analistas dedicados</li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="index.html#contacto" class="btn btn-primary w-100">
+                                    <i class="fas fa-rocket me-2"></i>Comenzar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Premium -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="pricing-header">
+                            <h3 class="h4 mb-3">
+                                <i class="fas fa-crown me-2"></i>SOC Premium
+                            </h3>
+                            <p class="mb-0">Para empresas grandes</p>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="text-center mb-4">
+                                <span class="price">$12,000</span>
+                                <span class="price-period">/mes</span>
+                                <div class="savings-badge">Ahorre 20% anual</div>
+                            </div>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i>Monitoreo 24x7 completo</li>
+                                <li><i class="fas fa-check"></i>Todas las herramientas incluidas</li>
+                                <li><i class="fas fa-check"></i>Wazuh + Zabbix + OpenVAS</li>
+                                <li><i class="fas fa-check"></i>Gestión avanzada de incidentes</li>
+                                <li><i class="fas fa-check"></i>Análisis forense digital</li>
+                                <li><i class="fas fa-check"></i>Respuesta automática a incidentes</li>
+                                <li><i class="fas fa-check"></i>Soporte técnico dedicado 24/7</li>
+                                <li><i class="fas fa-check"></i>Reportes diarios, semanales y mensuales</li>
+                                <li><i class="fas fa-check"></i>4-6 analistas dedicados</li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="index.html#contacto" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-rocket me-2"></i>Comenzar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Costs -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Costos de Implementación</h2>
+                    <p class="lead text-muted">
+                        Inversión inicial única para configurar su SOC completo
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="implementation-card text-center">
+                        <div class="feature-icon mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--success-color), var(--info-color)); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Implementación Básica</h4>
+                        <h3 class="text-primary">$5,000 - $8,000</h3>
+                        <p class="text-muted">Configuración inicial de herramientas básicas</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Instalación y configuración</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Integración básica</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Entrenamiento inicial</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="implementation-card text-center">
+                        <div class="feature-icon mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--warning-color), var(--accent-color)); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Implementación Completa</h4>
+                        <h3 class="text-primary">$15,000 - $25,000</h3>
+                        <p class="text-muted">Configuración completa con todas las herramientas</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Configuración avanzada</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Integración completa</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Entrenamiento completo</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="implementation-card text-center">
+                        <div class="feature-icon mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h4>Implementación Enterprise</h4>
+                        <h3 class="text-primary">$35,000 - $60,000</h3>
+                        <p class="text-muted">Solución completa con alta disponibilidad</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Alta disponibilidad</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Personalización completa</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Soporte premium</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Comparación de Planes</h2>
+                    <p class="lead text-muted">
+                        Compare las características de cada plan para elegir el mejor para su organización
+                    </p>
+                </div>
+            </div>
+            
+            <div class="comparison-table">
+                <table class="table table-borderless mb-0">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>SOC Básico</th>
+                            <th>SOC Estándar</th>
+                            <th>SOC Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-name">Monitoreo</td>
+                            <td>8x5</td>
+                            <td>12x7</td>
+                            <td>24x7</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Herramientas Incluidas</td>
+                            <td>TheHive, Cortex</td>
+                            <td>+ Elasticsearch, Kibana, Grafana</td>
+                            <td>+ Wazuh, Zabbix, OpenVAS</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Analistas Dedicados</td>
+                            <td>1</td>
+                            <td>2-3</td>
+                            <td>4-6</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Soporte Técnico</td>
+                            <td>Email/Teléfono</td>
+                            <td>Prioritario</td>
+                            <td>24/7 Dedicado</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Reportes</td>
+                            <td>Mensuales</td>
+                            <td>Semanales + Mensuales</td>
+                            <td>Diarios + Semanales + Mensuales</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Análisis Forense</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Respuesta Automática</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Cumplimiento Normativo</td>
+                            <td>Básico</td>
+                            <td>Estándar</td>
+                            <td>Completo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="roi-section text-center">
+                        <h2 class="display-5 fw-bold mb-4">Retorno de Inversión (ROI)</h2>
+                        <p class="lead mb-4">
+                            Su inversión en SOC se recupera rápidamente con beneficios tangibles
+                        </p>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <div class="feature-icon mx-auto mb-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--success-color), var(--info-color)); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                    <h4>$105,000</h4>
+                                    <p class="text-muted">Ahorro por incidente evitado</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <div class="feature-icon mx-auto mb-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--warning-color), var(--accent-color)); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h4>70%</h4>
+                                    <p class="text-muted">Reducción en tiempo de respuesta</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5 class="mb-3">Beneficios Adicionales:</h5>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <i class="fas fa-shield-check text-success me-2"></i>
+                                    <span>Protección de activos críticos</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="fas fa-certificate text-success me-2"></i>
+                                    <span>Cumplimiento normativo</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="fas fa-chart-line text-success me-2"></i>
+                                    <span>Mejora en eficiencia operacional</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Servicios Adicionales</h2>
+                    <p class="lead text-muted">
+                        Servicios especializados para complementar su implementación de SOC
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h5>Entrenamiento</h5>
+                            <p class="text-muted">Capacitación del equipo</p>
+                            <h4 class="text-primary">$500 - $1,000</h4>
+                            <small class="text-muted">por persona</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h5>Auditoría de Seguridad</h5>
+                            <p class="text-muted">Evaluación completa</p>
+                            <h4 class="text-primary">$3,000 - $8,000</h4>
+                            <small class="text-muted">por auditoría</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h5>Desarrollo de Playbooks</h5>
+                            <p class="text-muted">Automatización personalizada</p>
+                            <h4 class="text-primary">$2,000 - $5,000</h4>
+                            <small class="text-muted">por playbook</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <h5>Integración Personalizada</h5>
+                            <p class="text-muted">Conexión con sistemas existentes</p>
+                            <h4 class="text-primary">$3,000 - $10,000</h4>
+                            <small class="text-muted">por integración</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Hardening de Servidores -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h5>Hardening de Servidores</h5>
+                            <p class="text-muted">Fortalecimiento de servidores</p>
+                            <h4 class="text-primary">$1,500 - $4,000</h4>
+                            <small class="text-muted">por servidor</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Auditoría Informática / Ethical Hacking -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="fas fa-user-secret"></i>
+                            </div>
+                            <h5>Auditoría Informática / Ethical Hacking</h5>
+                            <p class="text-muted">Pruebas de penetración y auditoría ética</p>
+                            <h4 class="text-primary">$2,500 - $7,000</h4>
+                            <small class="text-muted">por proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Asesoría Personalizada -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5>Asesoría Personalizada</h5>
+                            <p class="text-muted">Consultoría estratégica en ciberseguridad</p>
+                            <h4 class="text-primary">$1,000 - $3,000</h4>
+                            <small class="text-muted">por sesión/paquete</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Gestión de Proyectos Informáticos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h5>Gestión de Proyectos Informáticos</h5>
+                            <p class="text-muted">Dirección y ejecución de proyectos IT</p>
+                            <h4 class="text-primary">$4,000 - $15,000</h4>
+                            <small class="text-muted">por proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Recuperación de Datos Críticos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h5>Recuperación de Datos Críticos</h5>
+                            <p class="text-muted">Recuperación profesional de información perdida o dañada</p>
+                            <h4 class="text-primary">$2,000 - $10,000</h4>
+                            <small class="text-muted">por caso</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Gestión Integral de Vulnerabilidades y Riesgos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-bug-slash"></i></div>
+                            <h5>Gestión de Vulnerabilidades</h5>
+                            <p class="text-muted">Identificación y remediación de vulnerabilidades</p>
+                            <h4 class="text-primary">$800 - $2,500</h4>
+                            <small class="text-muted">por mes/proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Infraestructura Cloud -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-cloud"></i></div>
+                            <h5>Infraestructura Cloud</h5>
+                            <p class="text-muted">Implementación y gestión de nubes públicas y privadas</p>
+                            <h4 class="text-primary">$1,500 - $5,000</h4>
+                            <small class="text-muted">por proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Automatización y Orquestación IT -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-robot"></i></div>
+                            <h5>Automatización y Orquestación</h5>
+                            <p class="text-muted">Automatización de procesos y flujos IT</p>
+                            <h4 class="text-primary">$1,000 - $4,000</h4>
+                            <small class="text-muted">por proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Cumplimiento y Auditoría Normativa -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-certificate"></i></div>
+                            <h5>Cumplimiento y Auditoría Normativa</h5>
+                            <p class="text-muted">ISO, NIST, COBIT, mejores prácticas</p>
+                            <h4 class="text-primary">$1,000 - $3,000</h4>
+                            <small class="text-muted">por proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Sistemas de Monitoreo -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-eye"></i></div>
+                            <h5>Sistemas de Monitoreo</h5>
+                            <p class="text-muted">Nagios, Zabbix, Grafana, alertas y dashboards</p>
+                            <h4 class="text-primary">$800 - $2,500</h4>
+                            <small class="text-muted">por proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: CRM / ERP / B2B -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-briefcase"></i></div>
+                            <h5>CRM / ERP / B2B</h5>
+                            <p class="text-muted">Implementación y personalización de sistemas empresariales</p>
+                            <h4 class="text-primary">$2,000 - $8,000</h4>
+                            <small class="text-muted">por proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Transformación Digital -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-lightbulb"></i></div>
+                            <h5>Transformación Digital</h5>
+                            <p class="text-muted">Estrategias de digitalización e innovación</p>
+                            <h4 class="text-primary">$1,500 - $5,000</h4>
+                            <small class="text-muted">por proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Desarrollo de Software -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-code"></i></div>
+                            <h5>Desarrollo de Software</h5>
+                            <p class="text-muted">Fullstack, integración, automatización, dashboards</p>
+                            <h4 class="text-primary">$1,200 - $6,000</h4>
+                            <small class="text-muted">por proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Capacitación y Entrenamiento -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-graduation-cap"></i></div>
+                            <h5>Capacitación y Entrenamiento</h5>
+                            <p class="text-muted">Cursos, talleres y formación en TI y seguridad</p>
+                            <h4 class="text-primary">$800 - $2,500</h4>
+                            <small class="text-muted">por curso</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Gestión y Administración de Data Center -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-server"></i></div>
+                            <h5>Gestión de Data Center</h5>
+                            <p class="text-muted">Administración, monitoreo, respaldo y recuperación</p>
+                            <h4 class="text-primary">$1,000 - $3,000</h4>
+                            <small class="text-muted">por mes/proyecto</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NUEVO BLOQUE: Análisis Forense Digital -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mx-auto mb-3"><i class="fas fa-microscope"></i></div>
+                            <h5>Análisis Forense Digital</h5>
+                            <p class="text-muted">Investigación y análisis de incidentes de seguridad</p>
+                            <h4 class="text-primary">$2,500 - $8,000</h4>
+                            <small class="text-muted">por caso</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paquetes de Implementación -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Paquetes de Implementación</h2>
+                    <p class="lead text-muted">
+                        Ejemplos de bundles de servicios integrales para su empresa
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="implementation-card text-center">
+                        <div class="feature-icon mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;"><i class="fas fa-shield-alt"></i></div>
+                        <h4>Paquete Seguridad Total</h4>
+                        <h3 class="text-primary">$12,000 - $25,000</h3>
+                        <p class="text-muted">Incluye: Gestión de Vulnerabilidades, Hardening, Auditoría, Monitoreo, Recuperación de Datos</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="implementation-card text-center">
+                        <div class="feature-icon mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--success-color), var(--info-color)); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;"><i class="fas fa-cloud"></i></div>
+                        <h4>Paquete Transformación Digital</h4>
+                        <h3 class="text-primary">$10,000 - $20,000</h3>
+                        <p class="text-muted">Incluye: Infraestructura Cloud, Automatización, CRM/ERP, Desarrollo de Software</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="implementation-card text-center">
+                        <div class="feature-icon mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--warning-color), var(--accent-color)); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;"><i class="fas fa-certificate"></i></div>
+                        <h4>Paquete Cumplimiento Normativo</h4>
+                        <h3 class="text-primary">$8,000 - $18,000</h3>
+                        <p class="text-muted">Incluye: Cumplimiento, Auditoría, Capacitación, Gestión de Proyectos IT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 cta-section">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">¿Listo para comenzar?</h2>
+            <p class="lead mb-4">
+                Contáctenos hoy mismo para una consulta gratuita y descubra cómo podemos 
+                proteger su organización con un SOC completo.
+            </p>
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="index.html#contacto" class="btn btn-light btn-lg">
+                    <i class="fas fa-rocket me-2"></i>Comenzar Ahora
+                </a>
+                <a href="https://wa.me/50762982064" class="btn btn-outline-light btn-lg">
+                    <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser</h5>
+                    <p class="text-muted">Su socio en ciberseguridad en Panamá</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="index.html" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-home me-1"></i>Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

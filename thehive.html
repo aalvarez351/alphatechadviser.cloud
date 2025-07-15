@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheHive - Gestión de Incidentes | AlphaTechAdviser</title>
+    <meta name="description" content="TheHive: Plataforma de gestión de incidentes de seguridad con colaboración en tiempo real y automatización de respuestas. Implementación profesional por AlphaTechAdviser.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --success-color: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+        
+        .tech-specs {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#herramientas">Herramientas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#precios">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-5 pt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="index.html#herramientas">Herramientas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">TheHive</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-bug me-3"></i>TheHive
+                    </h1>
+                    <h2 class="h3 mb-4">Plataforma de Gestión de Incidentes de Seguridad</h2>
+                    <p class="lead mb-4">
+                        TheHive es una plataforma de gestión de incidentes de seguridad de código abierto 
+                        diseñada para equipos de respuesta a incidentes. Permite la gestión colaborativa 
+                        de casos de seguridad, automatización de respuestas y análisis forense integrado.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#servicios" class="btn btn-primary btn-lg">
+                            <i class="fas fa-cogs me-2"></i>Nuestros Servicios
+                        </a>
+                        <a href="index.html#contacto" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone me-2"></i>Consultar
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" alt="TheHive Platform" class="img-fluid" style="max-width: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">¿Qué es TheHive?</h2>
+                    <p class="lead text-muted mb-5">
+                        TheHive es una plataforma de gestión de incidentes de seguridad que revoluciona 
+                        la forma en que los equipos de seguridad responden a amenazas cibernéticas.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="card-title">Colaboración en Tiempo Real</h4>
+                            <p class="card-text">
+                                TheHive permite que múltiples analistas trabajen simultáneamente en el mismo 
+                                incidente, compartiendo información, observaciones y acciones en tiempo real. 
+                                La plataforma mantiene un historial completo de todas las actividades, 
+                                facilitando la auditoría y el seguimiento de responsabilidades.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4 class="card-title">Automatización Inteligente</h4>
+                            <p class="card-text">
+                                La plataforma integra capacidades de automatización que permiten ejecutar 
+                                acciones repetitivas automáticamente, como el enriquecimiento de datos, 
+                                la búsqueda de amenazas y la ejecución de playbooks de respuesta. 
+                                Esto reduce significativamente el tiempo de respuesta a incidentes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Capacidades Principales</h2>
+                    <p class="lead text-muted">
+                        TheHive ofrece un conjunto completo de herramientas para la gestión efectiva 
+                        de incidentes de seguridad.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-tasks text-primary me-2"></i>Gestión de Casos
+                            </h5>
+                            <p class="card-text">
+                                Creación y gestión de casos de seguridad con campos personalizables, 
+                                etiquetas, prioridades y estados de progreso. Cada caso puede contener 
+                                múltiples observables, tareas y comentarios organizados cronológicamente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-search text-primary me-2"></i>Análisis de Observables
+                            </h5>
+                            <p class="card-text">
+                                Análisis automático de observables como IPs, URLs, hashes de archivos, 
+                                dominios y direcciones de email. Integración con múltiples fuentes de 
+                                inteligencia de amenazas para enriquecimiento de datos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-chart-line text-primary me-2"></i>Dashboards Personalizables
+                            </h5>
+                            <p class="card-text">
+                                Dashboards interactivos que muestran métricas clave como número de casos 
+                                activos, tiempo promedio de resolución, distribución por prioridad y 
+                                tendencias de incidentes a lo largo del tiempo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-plug text-primary me-2"></i>Integración API
+                            </h5>
+                            <p class="card-text">
+                                API RESTful completa que permite la integración con otras herramientas 
+                                de seguridad, sistemas de ticketing, SIEMs y plataformas de orquestación 
+                                de seguridad (SOAR).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-file-alt text-primary me-2"></i>Reportes Automatizados
+                            </h5>
+                            <p class="card-text">
+                                Generación automática de reportes en múltiples formatos (PDF, CSV, JSON) 
+                                con información detallada sobre casos, observables analizados y métricas 
+                                de rendimiento del equipo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-shield-alt text-primary me-2"></i>Gestión de Evidencias
+                            </h5>
+                            <p class="card-text">
+                                Almacenamiento seguro y organizado de evidencias digitales relacionadas 
+                                con incidentes, incluyendo archivos, capturas de pantalla, logs y 
+                                resultados de análisis forense.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AlphaTechAdviser Services -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Servicios de AlphaTechAdviser</h2>
+                    <p class="lead text-muted">
+                        Nuestro equipo de expertos configura TheHive para optimizar sus procesos 
+                        de respuesta a incidentes y maximizar la eficiencia de su equipo de seguridad.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">
+                                <i class="fas fa-cogs text-primary me-2"></i>Implementación Personalizada
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de flujos de trabajo personalizados según sus necesidades específicas</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Integración con sus sistemas existentes de seguridad y SIEM</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de roles y permisos de usuario</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Optimización de rendimiento y escalabilidad</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de backup y alta disponibilidad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card feature-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">
+                                <i class="fas fa-graduation-cap text-primary me-2"></i>Entrenamiento y Capacitación
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Entrenamiento completo del equipo en el uso de TheHive</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Desarrollo de playbooks de respuesta automatizados</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Configuración de alertas y notificaciones</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mejores prácticas para gestión de incidentes</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte continuo y actualizaciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="tech-specs">
+                        <h2 class="text-center mb-4">Especificaciones Técnicas</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-server text-primary me-2"></i>Requisitos del Sistema</h5>
+                                <ul class="list-unstyled">
+                                    <li><strong>CPU:</strong> 4 cores mínimo, 8 cores recomendado</li>
+                                    <li><strong>RAM:</strong> 8GB mínimo, 16GB recomendado</li>
+                                    <li><strong>Almacenamiento:</strong> 100GB SSD mínimo</li>
+                                    <li><strong>Sistema Operativo:</strong> Linux (Ubuntu/CentOS)</li>
+                                    <li><strong>Base de Datos:</strong> PostgreSQL 12+</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-network-wired text-primary me-2"></i>Integraciones</h5>
+                                <ul class="list-unstyled">
+                                    <li><strong>Cortex:</strong> Análisis automático de observables</li>
+                                    <li><strong>Elasticsearch:</strong> Búsqueda y análisis de logs</li>
+                                    <li><strong>SIEMs:</strong> QRadar, Splunk, ELK Stack</li>
+                                    <li><strong>Email:</strong> SMTP para notificaciones</li>
+                                    <li><strong>APIs:</strong> RESTful para integraciones personalizadas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-3">Beneficios para su Organización</h2>
+                    <p class="lead text-muted">
+                        TheHive transforma la forma en que su equipo responde a incidentes de seguridad, 
+                        proporcionando beneficios tangibles y medibles.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5>Reducción del 60%</h5>
+                        <p class="text-muted">en tiempo de respuesta a incidentes</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5>Mejora en Colaboración</h5>
+                        <p class="text-muted">entre equipos de seguridad</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h5>Auditoría Completa</h5>
+                        <p class="text-muted">de todas las actividades de respuesta</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto mb-3">
+                            <i class="fas fa-shield-check"></i>
+                        </div>
+                        <h5>Cumplimiento Normativo</h5>
+                        <p class="text-muted">ISO 27001, NIST, PCI DSS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">¿Listo para implementar TheHive?</h2>
+            <p class="lead mb-4">
+                Nuestro equipo de expertos está listo para ayudarle a configurar y optimizar 
+                TheHive para su organización.
+            </p>
+            <a href="index.html#contacto" class="btn btn-light btn-lg">
+                <i class="fas fa-rocket me-2"></i>Comenzar Implementación
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt me-2"></i>AlphaTechAdviser</h5>
+                    <p class="text-muted">Su socio en ciberseguridad en Panamá</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="index.html" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-home me-1"></i>Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
